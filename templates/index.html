@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    {% if session["name"] %}
+        <h1 class="h1" text-align="center">
+            Welcome, {{ session["name"] }}! <a href="/logout">Log Out</a>
+        </h1>
+    {% else %}
+        <h1 class="h1">
+            You are not logged in. <a href="/login">Log In</a>
+        </h1>
+    {% endif %}
+    <br>
+    <h1>Let's get started</h1>
+    <div class="container">
+        <h2 class="h2">Type your code here!</h2>
+        <script src="https://unpkg.com/@strudel.cycles/embed@latest"></script>
+        <strudel-repl>
+            <!--
+                await samples('https://shabda.ndre.gr/speech/ashiapppp.json?gender=f&language=id-ID&strudel=1')
+                await samples('https://shabda.ndre.gr/scream.json?strudel=1')
+                stack(
+                s("<ashiapppp scream>").delay(.25).delaytime(".125").slow(3),
+                s("bd(3,8,0), hh(2,8,0), sd(1,8,0)"),
+                s("bd(1,8),sd(1,8,4),hh(4,8)").fast(2).crush("<16 8 7 6 5 4 3 2>"),
+                note("<[b3,e4,g4] ~@3>").s("square")
+                ).clip(1).sometimes(x=>x.speed("0.5"))
+            -->
+          </strudel-repl>
+    </div>
+{% endblock %}
